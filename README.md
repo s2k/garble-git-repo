@@ -4,6 +4,10 @@
 
 Read the whole history of a given Git repo commit by commit and write the content to a given folder adding random commits to the history
 
+> [!CAUTION]
+> **Warning & Pro Tip**: Don't apply this to your production code! It's an exercise and used to produce weird Git histories for workshops and tutorials.
+
+
 ## A slightly longer description
 
 * Input
