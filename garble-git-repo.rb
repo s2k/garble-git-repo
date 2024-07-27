@@ -1,12 +1,9 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require 'git'
-require 'logger'
 require 'amazing_print'
 
-LOGGER = Logger.new('git-garbler.log', level: Logger::INFO)
-at_exit { LOGGER.close }
+RANDOM_COMMITS_RANGE = (7..13)
 
 if ARGV.size != 2
   puts 'Need two arguments:'
@@ -40,10 +37,3 @@ begin
 rescue Errno::EEXIST => e
   puts "Using existing outputfolder '#{output_folder}'."
 end
-
-
-input_git = Git.open(input_folder, log: LOGGER)
-
-puts "Git repo to garble: #{input_git.repo} / #{input_git.dir}"
-
-input_git.log.each { |l| puts l.sha }

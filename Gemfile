@@ -2,8 +2,6 @@
 
 source 'https://rubygems.org'
 
-gem 'git', '~> 2.1'
-gem 'logger'
 gem 'amazing_print'
 
 group :development do
