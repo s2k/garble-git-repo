@@ -46,4 +46,4 @@ input_git = Git.open(input_folder, log: LOGGER)
 
 puts "Git repo to garble: #{input_git.repo} / #{input_git.dir}"
 
-input_git.log.each {|l| puts l.sha }
+input_git.log.each { |l| puts l.sha }
