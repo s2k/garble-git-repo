@@ -35,5 +35,6 @@ puts 'Trying to create output folder…'
 begin
   Dir.mkdir(output_folder)
 rescue Errno::EEXIST => e
-  puts "Using existing outputfolder '#{output_folder}'."
+  puts "Using existing output folder '#{output_folder}'."
 end
+
