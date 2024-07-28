@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'amazing_print'
+gem 'faker'
 
 group :development do
   gem 'pry'
