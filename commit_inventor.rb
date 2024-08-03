@@ -27,9 +27,15 @@ class CommitInventor
     Faker::File.file_name(ext: ext, dir: folder)
   end
 
+  # These are the earliest and latest date the Git can
+  # process…
+  START_DATE  = '1970-01-01'
+  END_DATE    = '2099-12-31'
+
   # A – more or less – random DateTime to be used as the commit date
   def datetime
-    Faker::Time.between_dates from: '1066-10-14', to: '2982-12-31'
+    d = Faker::Time.between_dates from: START_DATE, to: END_DATE
+    d.strftime '%d %b %Y %H:%M:%S %z'
   end
 
   # Rearranges content
