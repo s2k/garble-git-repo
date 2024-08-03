@@ -66,3 +66,10 @@ Dir.chdir(working_output) do
   puts 'Initialising output git repo: '
   puts res
 end
+
+# Clone input Git repo into working_orig
+Dir.chdir(working_orig) do
+  res = `git clone #{input_folder}`
+  puts 'Cloning input repo:'
+  puts res
+end
