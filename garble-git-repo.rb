@@ -59,3 +59,10 @@ working_orig   = File.join(output_folder, WORKING_ORIGINAL_REPO)
 working_output = File.join(output_folder, WORKING_OUTPUT_FOLDER)
 Dir.mkdir(working_orig)
 Dir.mkdir(working_output)
+
+# Initialise a git repo in working_output
+Dir.chdir(working_output) do
+  res = `git init`
+  puts 'Initialising output git repo: '
+  puts res
+end
