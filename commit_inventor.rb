@@ -23,7 +23,7 @@ class CommitInventor
 
   # Returns a random file name, accepts an argument to enter a folder name
   #
-  def filename(ext: 'txt', folder: '')
+  def filename(ext: 'txt', folder: '.')
     Faker::File.file_name(ext: ext, dir: folder)
   end
 
