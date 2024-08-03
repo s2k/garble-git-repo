@@ -50,3 +50,12 @@ original_commits = Dir.chdir(input_folder) { `git log --format="%H"`.lines.map(&
 
 puts 'Original commit hashes:'
 ap original_commits
+
+# Create two sub folders:
+#  1. To store a clone the input repository and read from that folder while iterating over the commits
+#  2. the 'real' output folder to store the garbled repository
+
+working_orig   = File.join(output_folder, WORKING_ORIGINAL_REPO)
+working_output = File.join(output_folder, WORKING_OUTPUT_FOLDER)
+Dir.mkdir(working_orig)
+Dir.mkdir(working_output)
