@@ -73,3 +73,28 @@ Dir.chdir(working_orig) do
   puts 'Cloning input repo:'
   puts res
 end
+
+generator = CommitInventor.new
+
+# Write some noise commits (adding files) to output repo
+Dir.chdir(working_output) do |arg|
+  puts "In folder #{Dir.pwd}… (arg = #{arg})"
+  INITIAL_COMMIT_COUNT.times do
+    fn = generator.filename
+    puts "Generated file name: #{fn}"
+    File.open(fn, 'w') { |f| f.puts generator.content }
+    puts "Adding/Commiting changes…"
+    res = `git add -A`
+    puts res
+    author_date = generator.datetime
+    commit_date = generator.datetime
+    puts "Author date   : '#{author_date}'"
+    puts "Committer date: '#{commit_date}'"
+    cmd = "GIT_COMMITTER_DATE=\"#{commit_date}\" git commit -m \"#{generator.commit_message}\" --date \"#{generator.datetime}\""
+    puts "CMD: #{cmd}"
+    res = `#{cmd}`
+    abort "AAAAAAAA" if $? != 0
+    puts "*"*80
+    puts "RESULT: ", res
+  end
+end
