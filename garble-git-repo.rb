@@ -2,8 +2,12 @@
 # frozen_string_literal: true
 
 require 'amazing_print'
+RANDOM_COMMITS_RANGE  = (7..13)
+INITIAL_COMMIT_COUNT  = 250 #rand((5..11))
 
-RANDOM_COMMITS_RANGE = (7..13)
+WORKING_ORIGINAL_REPO = 'original_repo'
+WORKING_OUTPUT_FOLDER = 'garbled_repo'
+
 
 if ARGV.size != 2
   puts 'Need two arguments:'
