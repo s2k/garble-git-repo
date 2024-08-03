@@ -44,3 +44,9 @@ rescue Errno::EEXIST => e
   puts "Using existing output folder '#{output_folder}'."
 end
 
+puts "Reading input from: `#{input_folder}`"
+
+original_commits = Dir.chdir(input_folder) { `git log --format="%H"`.lines.map(&:strip) }
+
+puts 'Original commit hashes:'
+ap original_commits
