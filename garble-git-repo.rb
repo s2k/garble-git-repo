@@ -2,6 +2,8 @@
 # frozen_string_literal: true
 
 require 'amazing_print'
+require_relative 'commit_inventor'
+
 RANDOM_COMMITS_RANGE  = (7..13)
 INITIAL_COMMIT_COUNT  = 250 #rand((5..11))
 
@@ -21,7 +23,7 @@ if ARGV[0] == ARGV[1]
   exit 1
 end
 
-input_folder = ARGV[0]
+input_folder  = File.expand_path(ARGV[0])
 output_folder = ARGV[1]
 
 if File.directory?(output_folder) && !Dir[File.join(output_folder, '**')].empty?
