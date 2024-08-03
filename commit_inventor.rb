@@ -7,6 +7,12 @@ require 'faker'
 #
 class CommitInventor
 
+
+  # These are the earliest and latest date the Git can
+  # process…
+  START_DATE  = '1970-01-01'
+  END_DATE    = '2099-12-31'
+
   # Generates commit message by taking a random verb in ()simple present and add
   # a faked company catch phrase
   def commit_message
@@ -26,11 +32,6 @@ class CommitInventor
   def filename(ext: 'txt', folder: '.')
     Faker::File.file_name(ext: ext, dir: folder)
   end
-
-  # These are the earliest and latest date the Git can
-  # process…
-  START_DATE  = '1970-01-01'
-  END_DATE    = '2099-12-31'
 
   # A – more or less – random DateTime to be used as the commit date
   def datetime
