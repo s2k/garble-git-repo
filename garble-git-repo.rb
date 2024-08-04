@@ -92,9 +92,8 @@ Dir.chdir(working_output) do |arg|
     cmd = "GIT_COMMITTER_DATE=\"#{commit_date}\" git commit -m \"#{generator.commit_message}\" --date \"#{generator.datetime}\""
     puts "CMD: #{cmd}" if ENV['DEBUG']
     res = `#{cmd}`
-    abort "AAAAAAAA" if $? != 0
-    puts "*"*80
-    puts "RESULT: ", res
+    raise GitCommitError, "Can't commit this:\n#{cmd}" if $? != 0
+
     puts '*' * 80 if ENV['DEBUG']
     puts "RESULT: #{res}" if ENV['DEBUG']
   end
