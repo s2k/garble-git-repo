@@ -6,8 +6,6 @@ require 'faker'
 # provides freely hallucinated commit messages, file_contents & filenames
 #
 class CommitInventor
-
-
   # These are the earliest and latest date the Git can
   # process…
   START_DATE  = '1970-01-01'
