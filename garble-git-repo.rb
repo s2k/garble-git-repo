@@ -4,8 +4,7 @@
 require 'amazing_print'
 require_relative 'commit_inventor'
 
-RANDOM_COMMITS_RANGE  = (7..13)
-INITIAL_COMMIT_COUNT  = 250 #rand((5..11))
+INITIAL_COMMIT_COUNT  = rand((5..11))
 
 WORKING_ORIGINAL_REPO = 'original_repo'
 WORKING_OUTPUT_FOLDER = 'garbled_repo'
