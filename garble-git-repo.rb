@@ -83,18 +83,19 @@ Dir.chdir(working_output) do |arg|
     fn = generator.filename
     puts "Generated file name: #{fn}"
     File.open(fn, 'w') { |f| f.puts generator.content }
-    puts "Adding/Commiting changes…"
+    puts 'Adding/Commiting changes…' if ENV['DEBUG']
     res = `git add -A`
-    puts res
+    puts res if ENV['DEBUG']
     author_date = generator.datetime
     commit_date = generator.datetime
-    puts "Author date   : '#{author_date}'"
-    puts "Committer date: '#{commit_date}'"
+    puts "Author date   : '#{author_date}'  /  Committer date: '#{commit_date}'" if ENV['DEBUG']
     cmd = "GIT_COMMITTER_DATE=\"#{commit_date}\" git commit -m \"#{generator.commit_message}\" --date \"#{generator.datetime}\""
-    puts "CMD: #{cmd}"
+    puts "CMD: #{cmd}" if ENV['DEBUG']
     res = `#{cmd}`
     abort "AAAAAAAA" if $? != 0
     puts "*"*80
     puts "RESULT: ", res
+    puts '*' * 80 if ENV['DEBUG']
+    puts "RESULT: #{res}" if ENV['DEBUG']
   end
 end
