@@ -9,6 +9,7 @@ INITIAL_COMMIT_COUNT  = rand((5..11))
 WORKING_ORIGINAL_REPO = 'original_repo'
 WORKING_OUTPUT_FOLDER = 'garbled_repo'
 
+class GitCommitError < RuntimeError; end
 
 if ARGV.size != 2
   puts 'Need two arguments:'
